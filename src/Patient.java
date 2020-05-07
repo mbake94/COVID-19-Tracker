@@ -83,14 +83,15 @@ public class Patient {
 //    }
 
     public String toString(){
-        String retval = "--- Patient Information ---\n" + "\nName: " + getName() + "\nEmail Address: " + getEmail() +
+        String retval = "--- Patient Information ---\n" + "\nName: " + this.getName() + "\nEmail Address: " + getEmail() +
                 "\nPhone Number: " + getPhone() + "\nAddress: " + getAddress() + "\nTempurature: " + getTempurature() + "\n" +
-                "\n--- Patients Symptoms ---\n" + getSymptoms() ;
+                "\n--- Patients Symptoms ---\n" + this.getSymptoms();
 
             for (Symptoms symptoms: getSymptoms()){
                 retval += symptoms.toString();
             }
         return retval;
+
     }
 }
 

@@ -1,8 +1,5 @@
-import sun.jvm.hotspot.debugger.cdbg.Sym;
-
 import java.util.ArrayList;
 import java.util.Scanner;
-
 
 public class ScreeningApp {
     public static void main(String[] args) {
@@ -36,27 +33,35 @@ public class ScreeningApp {
             System.out.print("You're temperature is too low. \nHow many symptoms have you noticed? ");
             numSymptoms = sc.nextInt();
             for(int i = 1; i <= numSymptoms; i++){
-                patient = new Patient();
+                symptoms = new Symptoms();
                 System.out.printf("Please enter symptom number %d: ", (i));
                 enterSymptom = sc.nextLine();
                 sc.next();
+
+                symptoms.setSymptom(enterSymptom);
                 symptom.add(symptoms);
             }
+            patient.setSymptoms(symptom);
         } else if (patient.getTempurature() > 99) {
             System.out.print("You're temperature is too high. \nHow many symptoms have you noticed? ");
             numSymptoms = sc.nextInt();
                 for(int i = 1; i <= numSymptoms; i++) {
-                    patient = new Patient();
+                    symptoms = new Symptoms();
                     System.out.printf("Please enter symptom number %d: ", (i));
                     enterSymptom = sc.nextLine();
                     sc.next();
+
+                    symptoms.setSymptom(enterSymptom);
                     symptom.add(symptoms);
                 }
+            patient.setSymptoms(symptom);
         } else {
             System.out.println("\nThank you! Your temperature seems to be normal, please stay quarantined at home for a minimum of 14 days. If you develop any symptoms, return immediately.\nHere are your updated documents. Please present this information at your next visit.\n");
         }
         patient.setSymptoms(symptom);
+
 //Print patient information template from Patient.java
         System.out.println(patient.toString());
+        System.out.println(symptoms.getSymptom());
     }
 }

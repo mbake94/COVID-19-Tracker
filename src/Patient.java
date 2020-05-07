@@ -1,33 +1,31 @@
+import sun.jvm.hotspot.debugger.cdbg.Sym;
+
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Patient {
     private String name;
     private String email;
     private String phone;
     private String address;
-    private boolean test;
     private double tempurature;
-    private ArrayList<Patient> symptoms;
-
-
-    public Patient(String name, String email, String phone, String address, double tempurature, boolean test, ArrayList<Patient> symptoms) {
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-        this.address = address;
-        this.tempurature = tempurature;
-        this.test = test;
-        this.symptoms = symptoms;
-    }
+    private ArrayList<Symptoms> symptoms;
+//
+//    public Patient(String name, String email, String phone, String address, double tempurature, ArrayList<String> symptoms) {
+//        this.name = name;
+//        this.email = email;
+//        this.phone = phone;
+//        this.address = address;
+//        this.tempurature = tempurature;
+//        this.symptoms = new ArrayList<>();
+//    }
 
     public Patient() {
 
     }
 
-    public Patient(String name, String email, String phone, String address, boolean test, ArrayList<String> symptoms) {
-
-    }
+//    public Patient(String name, String email, String phone, String address, ArrayList<Symptoms> symptoms) {
+//
+//    }
 
     public String getName() {
         return name;
@@ -69,26 +67,29 @@ public class Patient {
         this.tempurature = tempurature;
     }
 
-    public boolean isTest() {
-        return test;
-    }
-
-    public void setTest(boolean test) {
-        this.test = test;
-    }
-
-    public ArrayList<Patient> getSymptoms() {
+    public ArrayList<Symptoms> getSymptoms() {
         return symptoms;
     }
 
-    public void setSymptoms(ArrayList<Patient> symptoms) {
+    public void setSymptoms(ArrayList<Symptoms> symptoms) {
         this.symptoms = symptoms;
     }
+
+//    public void addSymptom(Symptoms symptoms){
+//        if(this.symptoms.size() <=0){
+//            this.symptoms = new ArrayList<>();
+//        }
+//        this.symptoms.add(symptoms);
+//    }
 
     public String toString(){
         String retval = "--- Patient Information ---\n" + "\nName: " + getName() + "\nEmail Address: " + getEmail() +
                 "\nPhone Number: " + getPhone() + "\nAddress: " + getAddress() + "\nTempurature: " + getTempurature() + "\n" +
                 "\n--- Patients Symptoms ---\n" + getSymptoms() ;
+
+            for (Symptoms symptoms: getSymptoms()){
+                retval += symptoms.toString();
+            }
         return retval;
     }
 }
